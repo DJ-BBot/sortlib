@@ -22,7 +22,9 @@ typedef enum{
 	SELECTION,
 	INSERTION,
 	MERGE,
-	QUICK
+	QUICK,
+	BUBBLE,
+	HEAP
 }sortMode;
 
 typedef enum{
