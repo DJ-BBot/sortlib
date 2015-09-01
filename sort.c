@@ -1,6 +1,9 @@
 /*
 This is a group of sorting algorithms
 
+Author: Roger Barker
+Last Edit: 20150831
+
 */
 #include "sort.h"
 
