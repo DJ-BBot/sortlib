@@ -2,6 +2,9 @@
 #define SORT_H 1
 /*
  This is a library of sorting functions in C
+ 
+ Author: Roger Barker
+ Last Edit: 20150831
 */
 
 #include <stdio.h>
@@ -71,26 +74,6 @@ void insertionSort( int* arrayToSort, int size );
 void mergeSort( int* arrayToSort, int lhv, int rhv );
 
 /*
-merge(A,p,q,r):
- n1 <- q - p + 1
- n2 <- r - q
- for i<-1 to n1 do
- 	L[i] <- A[p+i-1]
- for j<-1 to n2 do
- 	R[j] <- A[q+j]
- 
- i = 1, j = 1
- for k<-p to r do
- 	if L[i] <= R[j]
- 		then A[k] = L[i]
- 		i <- i+1
- 	else
- 		then A[k] = R[j]
- 		j <- j+1
-*/
-void merge( int* arrayToSort, int lhv, int mv, int rhv );
-
-/*
 Quick(A,p,r):
 	if p < r
 		q = partition(A,p,r)
@@ -98,19 +81,6 @@ Quick(A,p,r):
 		quicksort(A,q+1,r)
 */
 void quickSort( int* arrayToSort,int lhv, int rhv);
-
-/*
-Partition(A,p,r):
-	x = A[r]
-	i = p - 1
-	for j = p to r - 1 do
-		if A[j] <= x
-			i++
-			swap A[i] and A[j]
-	swap A[i+1] with A[r]
-	return i+1
-*/
-int partition( int* A, int p, int r);
 
 /*
 bubbleSort( A, n  ):
@@ -148,47 +118,6 @@ procedure heapsort(a, count) is
         siftDown(a, 0, end)
 */
 void heapSort( int* arrayToSort, int size );
-
-/*
-(Put elements of 'a' in heap order, in-place)
-procedure heapify(a, count) is
-    (start is assigned the index in 'a' of the last parent node)
-    (the last element in a 0-based array is at index count-1; find the parent of that element)
-    start ← floor ((count - 2) / 2)
-    
-    while start ≥ 0 do
-        (sift down the node at index 'start' to the proper place such that all nodes below
-         the start index are in heap order)
-        siftDown(a, start, count - 1)
-        (go to the next parent node)
-        start ← start - 1
-    (after sifting down the root all nodes/elements are in heap order)
-*/
-void heapify( int* arrayToSort, int size );
-
-/*
-(Repair the heap whose root element is at index 'start', assuming the heaps rooted at its children are valid)
-procedure siftDown(a, start, end) is
-    root ← start
-
-    while root * 2 + 1 ≤ end do    (While the root has at least one child)
-        child ← root * 2 + 1       (Left child)
-        swap ← root                (Keeps track of child to swap with)
-
-        if a[swap] < a[child]
-            swap ← child
-        (If there is a right child and that child is greater)
-        if child+1 ≤ end and a[swap] < a[child+1]
-            swap ← child + 1
-        if swap = root
-            (The root holds the largest element. Since we assume the heaps rooted at the
-             children are valid, this means that we are done.)
-            return
-        else
-            swap(a[root], a[swap])
-            root ← swap            (repeat to continue sifting down the child now)
-*/
-void siftDown( int* arrayToSort, int start, int end );
 
 
 #endif
